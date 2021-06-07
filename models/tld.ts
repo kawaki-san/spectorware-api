@@ -34,14 +34,17 @@ module.exports = (
         type: DataTypes.STRING(100),
         allowNull: false,
         primaryKey: true,
+        comment: "name of including dot of tld e.g .com",
       },
       cost: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
+        comment: "cost per year",
       },
       featured: {
         type: DataTypes.BOOLEAN,
         allowNull: true,
+        comment: "appears in home screen, 3 are picked",
       },
     },
     {

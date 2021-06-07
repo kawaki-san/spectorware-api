@@ -4,7 +4,7 @@ export const typeDefs = gql`
 
   # This "Book" type defines the queryable fields for every book in our data source.
   type Package {
-    package: String!
+    name: String!
     price_mon: Float
     price_ann: Float
     databases: Int
@@ -14,7 +14,7 @@ export const typeDefs = gql`
     popular: Boolean
   }
 
-  type TLDs {
+  type TLD {
     tld: String!
     cost: Float
     featured: Boolean
@@ -25,7 +25,7 @@ export const typeDefs = gql`
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
     packages: [Package]
-    tlds: [TLDs]
+    tlds: [TLD]
     popularPackages: [Package]
   }
 `;
