@@ -1,45 +1,25 @@
-import db from "../models";
-import { my_packages } from "../seeders/packages";
-import { my_tlds } from "../seeders/tlds";
+import { my_packages, my_tlds } from "../data/seed";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
-export const createPackages = () => {
-  my_packages.map((my_package) => {
-    db.Package.create(my_package);
+export const getPackages = async () => {
+  // ... you will write your Prisma Client queries here
+  // await prisma.tLDs.createMany({
+  //   data: my_tlds,
+  // });
+
+  const allPackages = await prisma.packages.findMany();
+  return allPackages;
+};
+
+export const createPackages = async () => {
+  await prisma.packages.createMany({
+    data: my_packages,
   });
 };
 
-export const createTLD = () => {
-  my_tlds.map((my_tld) => {
-    db.TLD.create(my_tld);
+export const createTLDs = async () => {
+  await prisma.tLDs.createMany({
+    data: my_tlds,
   });
-};
-
-interface HostingPackage {
-  name: string;
-  cost_mon: number;
-  cost_ann: number;
-  databases: number;
-  domains: number;
-  mailboxes: number;
-  subdomains: number;
-  popular: boolean;
-  storage: number;
-}
-
-export const getPackages = async (): Promise<HostingPackage> => {
-  const package_data = await db.Package.findAll();
-  const packages = await package_data.map((pack: HostingPackage) => {
-    return {
-      name: pack.name,
-      cost_mon: pack.cost_ann,
-      cost_ann: pack.cost_ann,
-      databases: pack.databases,
-      domains: pack.domains,
-      mailboxes: pack.mailboxes,
-      subdomains: pack.subdomains,
-      popular: pack.popular,
-      storage: pack.storage,
-    };
-  });
-  return packages;
 };
