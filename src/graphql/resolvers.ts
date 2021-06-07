@@ -1,9 +1,12 @@
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
 
-import { books } from "../../database/mockdb";
+import { findPackageByPopularity, packages, tlds } from "../utils";
+
 export const resolvers = {
   Query: {
-    books: () => books,
+    packages: () => packages(),
+    tlds: () => tlds(),
+    popularPackages: (val: boolean) => findPackageByPopularity(val),
   },
 };
