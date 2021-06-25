@@ -5,8 +5,8 @@ export const typeDefs = gql`
   # This "Book" type defines the queryable fields for every book in our data source.
   type Package {
     name: String!
-    price_mon: Float
-    price_ann: Float
+    cost_mon: Float
+    cost_ann: Float
     databases: Int
     domains: Int
     mailboxes: Int
