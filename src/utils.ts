@@ -25,6 +25,11 @@ interface HostingPackage {
   popular: boolean;
   storage: number;
 }
+interface TLD {
+  name: string;
+  cost: number;
+  featured: boolean;
+}
 
 export const getPackages = async (): Promise<HostingPackage> => {
   const package_data = await db.Package.findAll();
@@ -42,4 +47,15 @@ export const getPackages = async (): Promise<HostingPackage> => {
     };
   });
   return packages;
+};
+export const getTLDs = async (): Promise<TLD> => {
+  const tld_data = await db.TLD.findAll();
+  const tld = await tld_data.map((pack: TLD) => {
+    return {
+      name: pack.name,
+      featured: pack.featured,
+      cost: pack.cost,
+    };
+  });
+  return tld;
 };

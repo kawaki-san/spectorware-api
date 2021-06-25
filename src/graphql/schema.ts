@@ -15,7 +15,7 @@ export const typeDefs = gql`
   }
 
   type TLD {
-    tld: String!
+    name: String!
     cost: Float
     featured: Boolean
   }

@@ -2,7 +2,7 @@ export const my_packages = [
   {
     name: "vortex",
     cost_mon: 3.66,
-    cost_ann: 43.89,
+    cost_ann: 43.9,
     databases: 20,
     domains: 1,
     mailboxes: 15,
@@ -13,7 +13,7 @@ export const my_packages = [
   {
     name: "cyclone",
     cost_mon: 6.1,
-    cost_ann: 43.89,
+    cost_ann: 73.2,
     databases: 999,
     domains: 5,
     mailboxes: 999,
@@ -24,7 +24,7 @@ export const my_packages = [
   {
     name: "tempest",
     cost_mon: 10.98,
-    cost_ann: 43.89,
+    cost_ann: 131.76,
     databases: 999,
     domains: 15,
     mailboxes: 999,
