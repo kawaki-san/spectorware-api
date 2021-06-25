@@ -36,7 +36,7 @@ export const getPackages = async (): Promise<HostingPackage> => {
   const packages = await package_data.map((pack: HostingPackage) => {
     return {
       name: pack.name,
-      cost_mon: pack.cost_ann,
+      cost_mon: pack.cost_mon,
       cost_ann: pack.cost_ann,
       databases: pack.databases,
       domains: pack.domains,
